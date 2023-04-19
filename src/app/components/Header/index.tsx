@@ -9,9 +9,13 @@ import { IconBox } from '../IconBox/Loadable';
 import { Text } from '../Text/Loadable';
 
 import LogoBlack from 'app/assets/hkj-black.png';
+import LogoWhite from 'app/assets/hkj-white.png';
 import GmailIcon from 'app/assets/social/gmail.svg';
 import LinkedinIcon from 'app/assets/social/linkedin.svg';
 import GithubIcon from 'app/assets/social/github.svg';
+import GmailIconWhite from 'app/assets/social/gmail-white.svg';
+import LinkedinIconWhite from 'app/assets/social/linkedin-white.svg';
+import GithubIconWhite from 'app/assets/social/github-white.svg';
 import { media } from 'styles/media';
 import constants from 'utils/constants';
 
@@ -55,7 +59,12 @@ export const Header = memo((props: Props) => {
   return (
     <Container>
       <div>
-        <IconBox src={LogoBlack} height="28px" width="40px" cursor="pointer" />
+        <IconBox
+          src={props.scrollPosition > 270 ? LogoBlack : LogoWhite}
+          height="28px"
+          width="40px"
+          cursor="pointer"
+        />
         <Text
           fontWeight="400"
           cursor="pointer"
@@ -88,7 +97,7 @@ export const Header = memo((props: Props) => {
       <div>
         <a href={constants.gmail}>
           <IconBox
-            src={GmailIcon}
+            src={props.scrollPosition > 270 ? GmailIcon : GmailIconWhite}
             height="28px"
             width="28px"
             cursor="pointer"
@@ -96,7 +105,7 @@ export const Header = memo((props: Props) => {
         </a>
         <a href={constants.linkedin} target="_blank">
           <IconBox
-            src={LinkedinIcon}
+            src={props.scrollPosition > 270 ? LinkedinIcon : LinkedinIconWhite}
             height="28px"
             width="28px"
             cursor="pointer"
@@ -104,7 +113,7 @@ export const Header = memo((props: Props) => {
         </a>
         <a href={constants.github} target="_blank">
           <IconBox
-            src={GithubIcon}
+            src={props.scrollPosition > 270 ? GithubIcon : GithubIconWhite}
             height="28px"
             width="28px"
             cursor="pointer"

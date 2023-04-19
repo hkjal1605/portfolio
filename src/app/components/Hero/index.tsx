@@ -60,12 +60,12 @@ const NameContainer = styled.div<Props>`
 const DescriptionContainer = styled.div<Props>`
   z-index: 10;
   margin-bottom: ${props =>
-    props.scrollPosition > 1000 ? (props.scrollPosition - 1000) * 0.2 : -60}px;
+    props.scrollPosition > 1200 ? (props.scrollPosition - 1200) * 0.2 : 0}px;
   opacity: ${props =>
-    props.scrollPosition > 1000 && props.scrollPosition < 1500
-      ? (props.scrollPosition - 1000) * 0.01
+    props.scrollPosition > 1200 && props.scrollPosition < 1700
+      ? (props.scrollPosition - 1200) * 0.01
       : props.scrollPosition > 1500
-      ? (1600 - props.scrollPosition) * 0.01
+      ? (1800 - props.scrollPosition) * 0.01
       : 0};
 `;
 
@@ -73,7 +73,7 @@ export const Hero = memo((props: Props) => {
   return (
     <Container scrollPosition={props.scrollPosition}>
       <Image src={BgImage} />
-      {props.scrollPosition < 850 ? (
+      {props.scrollPosition < 1000 ? (
         <NameContainer scrollPosition={props.scrollPosition}>
           <Text
             fontFamily="CanelaDeckBold"
@@ -89,18 +89,30 @@ export const Hero = memo((props: Props) => {
         </NameContainer>
       ) : null}
 
-      <DescriptionContainer scrollPosition={props.scrollPosition}>
-        <Text
-          fontFamily="CanelaDeckBold"
-          color="#fff"
-          lineHeight="80"
-          size="64"
-          letterSpacing="3"
-          textAlign="center"
-        >
-          I am a software developer
-        </Text>
-      </DescriptionContainer>
+      {props.scrollPosition > 1200 ? (
+        <DescriptionContainer scrollPosition={props.scrollPosition}>
+          <Text
+            fontFamily="CanelaDeckBold"
+            color="#fff"
+            lineHeight="45"
+            size="36"
+            textAlign="center"
+          >
+            I build beautiful,
+            <br /> hand-crafted, pixel-perfect websites. <br />
+            And I can do it for you. <br />
+            <span
+              style={{
+                color: '#809BF2',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Contact me
+            </span>
+          </Text>
+        </DescriptionContainer>
+      ) : null}
     </Container>
   );
 });
