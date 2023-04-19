@@ -9,6 +9,7 @@
 // Update your breakpoints if you want
 export const sizes = {
   small: 600,
+  mediumsmall: 768,
   medium: 1024,
   large: 1440,
   xlarge: 1920,

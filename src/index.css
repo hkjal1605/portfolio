@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'CanelaTextBold';
+  src: url('./fonts/Canela_Text_Family/CanelaText-Bold-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CanelaTextMedium';
+  src: url('./fonts/Canela_Text_Family/CanelaText-Medium-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CanelaTextRegular';
+  src: url('./fonts/Canela_Text_Family/CanelaText-Regular-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CanelaDeckBold';
+  src: url('./fonts/Canela_Deck_Family/CanelaDeck-Bold-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CanelaDeckMedium';
+  src: url('./fonts/Canela_Deck_Family/CanelaDeck-Medium-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CanelaDeckRegular';
+  src: url('./fonts/Canela_Deck_Family/CanelaDeck-Regular-Trial.otf')
+    format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

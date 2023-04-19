@@ -19,18 +19,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  p,
-  label {
-    line-height: 1.5em;
-  }
+  
 
   input, select, button {
     font-family: inherit;
     font-size: inherit;
-  }
-
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
   }
 `;
