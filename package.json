@@ -1,17 +1,15 @@
 {
-  "name": "cra-template-rb",
-  "description": "The official React Boilerplate template for Create React App",
+  "name": "Harsh Kumar Jha | Web Developer | Mobile Developer",
+  "description": "Experienced software developer always ready to help you get your idea or business shipped to everyone across the globe as a website or mobile app!",
   "version": "1.2.6",
+  "homepage": "https://hkjal1605.github.io/portfolio/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-boilerplate/react-boilerplate-cra-template.git"
+    "url": "https://github.com/hkjal1605/portfolio"
   },
   "license": "MIT",
   "engines": {
     "node": ">=14.x"
-  },
-  "bugs": {
-    "url": "https://github.com/react-boilerplate/react-boilerplate-cra-template/issues"
   },
   "main": "template.json",
   "files": [
@@ -59,7 +57,9 @@
     "publish:github": "cross-env PUBLIC_URL='/react-boilerplate-cra-template' yarn build && gh-pages -d build",
     "changelog": "ts-node ./internals/scripts/create-changelog.script.ts",
     "release": "standard-version",
-    "publish:npm": "yarn run create:npm-package && yarn publish .cra-template-rb --non-interactive"
+    "publish:npm": "yarn run create:npm-package && yarn publish .cra-template-rb --non-interactive",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
