@@ -3,7 +3,7 @@
  * Header
  *
  */
-import React, { memo } from 'react';
+import React, { memo, MouseEventHandler } from 'react';
 import styled from 'styled-components/macro';
 import { IconBox } from '../IconBox/Loadable';
 import { Text } from '../Text/Loadable';
@@ -18,9 +18,13 @@ import LinkedinIconWhite from 'app/assets/social/linkedin-white.svg';
 import GithubIconWhite from 'app/assets/social/github-white.svg';
 import { media } from 'styles/media';
 import constants from 'utils/constants';
+import { useTheme } from 'styles/theme/ThemeProvider';
+import { themes } from 'styles/theme/themes';
 
 interface Props {
   scrollPosition: number;
+  scollToAbout?: MouseEventHandler<Element>;
+  scrollToExperience?: MouseEventHandler<Element>;
 }
 
 const Container = styled.div`
@@ -56,11 +60,19 @@ const Container = styled.div`
 `;
 
 export const Header = memo((props: Props) => {
+  const { theme } = useTheme();
+
   return (
     <Container>
       <div>
         <IconBox
-          src={props.scrollPosition > 270 ? LogoBlack : LogoWhite}
+          src={
+            theme.type === 'dark'
+              ? LogoWhite
+              : props.scrollPosition > 270
+              ? LogoBlack
+              : LogoWhite
+          }
           height="28px"
           width="40px"
           cursor="pointer"
@@ -68,28 +80,41 @@ export const Header = memo((props: Props) => {
         <Text
           fontWeight="400"
           cursor="pointer"
-          color={props.scrollPosition > 270 ? '#000' : '#fff'}
+          color={
+            theme.type === 'light'
+              ? props.scrollPosition > 270
+                ? themes.light.text
+                : themes.dark.text
+              : undefined
+          }
+          onClick={props.scollToAbout}
         >
           About
         </Text>
         <Text
           fontWeight="400"
           cursor="pointer"
-          color={props.scrollPosition > 270 ? '#000' : '#fff'}
+          color={
+            theme.type === 'light'
+              ? props.scrollPosition > 270
+                ? themes.light.text
+                : themes.dark.text
+              : undefined
+          }
+          onClick={props.scrollToExperience}
         >
           Experience
         </Text>
         <Text
           fontWeight="400"
           cursor="pointer"
-          color={props.scrollPosition > 270 ? '#000' : '#fff'}
-        >
-          Education
-        </Text>
-        <Text
-          fontWeight="400"
-          cursor="pointer"
-          color={props.scrollPosition > 270 ? '#000' : '#fff'}
+          color={
+            theme.type === 'light'
+              ? props.scrollPosition > 270
+                ? themes.light.text
+                : themes.dark.text
+              : undefined
+          }
         >
           Contact
         </Text>
@@ -97,7 +122,13 @@ export const Header = memo((props: Props) => {
       <div>
         <a href={constants.gmail}>
           <IconBox
-            src={props.scrollPosition > 270 ? GmailIcon : GmailIconWhite}
+            src={
+              theme.type === 'dark'
+                ? GmailIconWhite
+                : props.scrollPosition > 270
+                ? GmailIcon
+                : GmailIconWhite
+            }
             height="28px"
             width="28px"
             cursor="pointer"
@@ -105,7 +136,13 @@ export const Header = memo((props: Props) => {
         </a>
         <a href={constants.linkedin} target="_blank">
           <IconBox
-            src={props.scrollPosition > 270 ? LinkedinIcon : LinkedinIconWhite}
+            src={
+              theme.type === 'dark'
+                ? LinkedinIconWhite
+                : props.scrollPosition > 270
+                ? LinkedinIcon
+                : LinkedinIconWhite
+            }
             height="28px"
             width="28px"
             cursor="pointer"
@@ -113,7 +150,13 @@ export const Header = memo((props: Props) => {
         </a>
         <a href={constants.github} target="_blank">
           <IconBox
-            src={props.scrollPosition > 270 ? GithubIcon : GithubIconWhite}
+            src={
+              theme.type === 'dark'
+                ? GithubIconWhite
+                : props.scrollPosition > 270
+                ? GithubIcon
+                : GithubIconWhite
+            }
             height="28px"
             width="28px"
             cursor="pointer"

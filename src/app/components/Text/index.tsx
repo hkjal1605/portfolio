@@ -5,11 +5,12 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
+import { useTheme } from 'styles/theme/ThemeProvider';
 
 interface Props {
   letterSpacing?: string;
   fontWeight?: string;
-  color?: string;
+  type?: string;
   size?: string;
   lineHeight?: string;
   marginBottom?: string;
@@ -26,13 +27,22 @@ interface Props {
   fontFamily?: string;
   children: any;
   onClick?: React.MouseEventHandler;
+  theme?: any;
+  color?: string;
 }
 
 const StyledText = styled.p<Props>`
   letter-spacing: ${props =>
     props.letterSpacing ? props.letterSpacing : '0'}px;
   font-weight: ${props => (props.fontWeight ? props.fontWeight : '400')};
-  color: ${props => (props.color ? props.color : '#000')};
+  color: ${props =>
+    props.color
+      ? props.color
+      : !props.type
+      ? props.theme.text
+      : props.type === 'primary'
+      ? props.theme.text
+      : props.theme.textSecondary};
   font-size: ${props => (props.size ? props.size : '15')}px;
   line-height: ${props => (props.lineHeight ? props.lineHeight : '20')}px;
   margin-top: ${props => (props.marginTop ? props.marginTop : '0')}px;
@@ -68,5 +78,11 @@ const StyledText = styled.p<Props>`
 `;
 
 export const Text = memo((props: Props) => {
-  return <StyledText {...props}>{props.children}</StyledText>;
+  const { theme } = useTheme();
+
+  return (
+    <StyledText {...props} theme={theme}>
+      {props.children}
+    </StyledText>
+  );
 });

@@ -8,16 +8,15 @@ import styled from 'styled-components/macro';
 
 import BgImage from 'app/assets/bg.webp';
 import { Text } from '../Text/Loadable';
+import constants from 'utils/constants';
 
 interface Props {
   scrollPosition: number;
 }
 
 const Container = styled.div<Props>`
-  position: fixed;
-  left: ${props => `${Math.min(80, props.scrollPosition * 0.2)}px`};
-  right: ${props => `${Math.min(80, props.scrollPosition * 0.2)}px`};
-  top: ${props => `${Math.min(60, props.scrollPosition * 0.12)}px`};
+  position: relative;
+  width: 100%;
   height: ${props =>
     props.scrollPosition < 1200
       ? '100vh'
@@ -77,11 +76,11 @@ export const Hero = memo((props: Props) => {
         <NameContainer scrollPosition={props.scrollPosition}>
           <Text
             fontFamily="CanelaDeckBold"
-            color="#fff"
             lineHeight="80"
             size="64"
             letterSpacing="3"
             textAlign="center"
+            color="#fff"
           >
             Hi, I am <br />
             HARSH KUMAR JHA
@@ -93,20 +92,21 @@ export const Hero = memo((props: Props) => {
         <DescriptionContainer scrollPosition={props.scrollPosition}>
           <Text
             fontFamily="CanelaDeckBold"
-            color="#fff"
             lineHeight="45"
             size="36"
             textAlign="center"
+            color="#fff"
           >
             I build beautiful,
             <br /> hand-crafted, pixel-perfect websites. <br />
-            And I can do it for you. <br />
+            And I can do it for you too! <br />
             <span
               style={{
                 color: '#809BF2',
                 textDecoration: 'underline',
                 cursor: 'pointer',
               }}
+              onClick={() => window.open(constants.linkedin)}
             >
               Contact me
             </span>
